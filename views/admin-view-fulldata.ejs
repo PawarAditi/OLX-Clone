@@ -1,0 +1,156 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        
+            <button class="button login__submit" style="margin-left: 20%;"><a href = "/admin/home" >BACK</a></button>
+            </button>
+            <h1 style="text-align: center;"><br>
+                All Ads posted 
+            </h1>
+        
+        
+        
+    </head>
+    <body>
+        <div class = "details">
+            <% if(data.length> 0 )
+                    {
+                        data.forEach(function (data){
+                    %>  
+                        
+                    <p><strong>FIRST NAME : <%=data.fname%></p>
+                    <p><strong>LAST NAME : <%=data.lname%></p> 
+                    <p><strong>EMAIL ID : <%=data.email%></p>
+                    <p><strong>PHONE NUMBER : <%=data.phone%></p>  
+                    <p><strong>ADDRESS : <%=data.address%></p>
+                    <p><strong>PINCODE : <%=data.pincode%></strong></p> 
+            <% }) } %>
+        </div>
+
+        <div class="row">
+                
+            <% if(dataA.length> 0 )
+                {
+                dataA.forEach(function (data){
+                %>
+                
+                    <% var imgUrl = "/image/"+data._id+"."+data.image%>
+                    <div class="column">
+                        <img style="width:200px;height:200px; border:8px solid whitesmoke;" src=<%=imgUrl%>><br>
+                        Ad Name : <%= data.name %><br> 
+                        Description : <%= data.description %> <br>
+                        Price : <%= data.price %><br>
+                        Time Created :  <% var dObj=new Date(data.adDateTime) 
+                        var date=dObj.getDate()+"/"+(dObj.getMonth()+1)+"/"+dObj.getFullYear()+" "+ dObj.getHours()+":"+dObj.getMinutes()+":"+dObj.getSeconds() %>
+                         <%=date%><br>
+                        
+                        
+                    
+                    </div> 
+                <% 
+             }) 
+               }
+            %>
+            </div>
+        
+
+
+
+
+
+
+        
+    </body>
+    <style>
+        body {
+    background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+}
+.details{
+    align-content: center;
+    text-align: center;
+}
+.row {
+  display: flex;
+}
+
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+img {
+  border: 1px solid white; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+  border-image-outset: 10px;
+}
+        .main{
+            align-content: center;
+            width:100%;
+    text-align: center;
+        }
+        #outer
+{
+    width:100%;
+    text-align: center;
+    
+}
+.inner
+{
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+        .login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 90%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+    position: absolute;
+  
+  left: 0;
+  width: 120px;
+  transform: translateX(-190%);
+}
+.styled-table {
+    border-collapse: collapse;
+    align-content: center;
+    text-align: center;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+  margin-right: auto;
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+h1{
+            align-content: center;
+            text-align: center;
+        }
+    </style>
+</html>
