@@ -1,0 +1,157 @@
+
+<!Doctype html>
+
+<html>
+
+<head>
+    <title>Details</title>
+    <h1>Full Details</h1>
+    <button class="button login__submit" style="margin-left: 20%;"><a href = "/" >BACK</a></button>
+            </button>
+</head>
+
+<body>
+    
+
+
+    <div class="details">
+        
+        
+                        
+                    <p><strong>FIRST NAME : <%=dataD.fname%></p>
+                    <p><strong>LAST NAME : <%=dataD.lname%></p> 
+                    <p><strong>EMAIL ID : <%=dataD.email%></p>
+                    <p><strong>PHONE NUMBER : <%=dataD.phone%></p>  
+                    <p><strong>ADDRESS : <%=dataD.address%></p>
+                    <p><strong>PINCODE : <%=dataD.pincode%></strong></p> 
+           
+        <p><button class="button " onclick="window.location.href = '/contactMember/<%=dataD._id%>';">CONTACT</button>
+        </p>
+    </div>
+    <% var imgUrl = "/image/"+data._id+"."+data.image%>
+                    
+    <img style="width:200px;height:200px; border:8px solid whitesmoke; align-self: center; align-items: center;" src=<%=imgUrl%>><br>
+    <p class="pa">
+    Ad Name : <%= data.name %><br> 
+    Description : <%= data.description %> <br>
+    Price : <%= data.price %><br>
+    Time Created :  <% var dObj=new Date(data.adDateTime) 
+    var date=dObj.getDate()+"/"+(dObj.getMonth()+1)+"/"+dObj.getFullYear()+" "+ dObj.getHours()+":"+dObj.getMinutes()+":"+dObj.getSeconds() %>
+        <%=date%><br>
+        </p>
+    
+                        
+                    
+                   
+
+
+    
+    </body>
+    <style>
+        body {
+    background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+}
+.details{
+    align-content: center;
+    text-align: center;
+}
+.row {
+  display: flex;
+}
+button{
+    background: #fff;
+	font-size: 14px;
+	
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+img {
+  border: 1px solid white; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+  border-image-outset: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+        
+  
+}
+.pa{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+}
+        .main{
+            align-content: center;
+            width:100%;
+    text-align: center;
+        }
+        #outer
+{
+    width:100%;
+    text-align: center;
+    
+}
+.inner
+{
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+        .login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 90%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+    position: absolute;
+  
+  left: 0;
+  width: 120px;
+  transform: translateX(-190%);
+}
+.styled-table {
+    border-collapse: collapse;
+    align-content: center;
+    text-align: center;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+  margin-right: auto;
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+h1{
+            align-content: center;
+            text-align: center;
+        }
+    </style>
+</html>

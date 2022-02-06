@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Update Image Page</title>
   <link rel="stylesheet" href="./style.css">
+  <button class="button login__submit" style="margin-left: 20%;"><a href = "/member/home" >BACK</a></button>
+            </button>
 
 </head>
 <body>
@@ -21,10 +23,11 @@
       <div id="userform">
         <div class="tab-pane fade in" id="login"><br>
             <h2 class="text-uppercase text-center"> Update Image </h2>
-            <form action="/member/reuploadImg" id="login" method="post">
+            <form action="/member/reuploadImg" id="login" method="post" enctype="multipart/form-data">
               <div class="form-group">
-                <input type="hidden" name="id" value="<%=data._id%>" required="required" />
                 </div>
+                <input type="text" class="form-control" name="id" value="<%=data._id%>" readonly />
+
               <div class="form-group">
                 <label>Update Image</label>
                 <input type="file" class="form-control" id="filetoupload" name="filetoupload" placeholder="Upload File">
@@ -70,6 +73,28 @@
       outline: 0;
     border-radius: 0
   }
+  .login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 90%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+    position: absolute;
+  
+  left: 0;
+  width: 120px;
+  transform: translateX(-190%);
+}
   
   
   

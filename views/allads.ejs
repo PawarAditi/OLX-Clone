@@ -1,0 +1,128 @@
+<!Doctype html>
+        
+    <html>
+    
+    <head>
+        <title>List of Ads</title>
+    </head>
+    <button class="button login__submit" style="margin-left: 20%;"><a href = "/" >BACK</a></button>
+            </button>
+            
+        
+    
+    <body> 
+        
+        <h1>List of Ads</h1>
+               <br><br>     
+            <div class="row">
+                
+                <% if(taskData.length> 0 )
+                    {
+                        taskData.forEach(function (data){
+                    %>
+                    
+                        <% var imgUrl = "/image/"+data._id+"."+data.image%>
+                        <div class="column">
+                            <img style="width:200px;height:200px; border:8px solid whitesmoke;" src=<%=imgUrl%>><br>
+                            Ad Name : <%= data.name %><br> 
+                            Description : <%= data.description %> <br>
+                            Price : <%= data.price %><br>
+                            Time Created :  <% var dObj=new Date(data.adDateTime) 
+                            var date=dObj.getDate()+"/"+(dObj.getMonth()+1)+"/"+dObj.getFullYear()+" "+ dObj.getHours()+":"+dObj.getMinutes()+":"+dObj.getSeconds() %>
+                             <%=date%><br>
+                             <button class="btnAction" onclick="window.location.href = 'viewFullDetails/<%=data._id%>';">
+                                Full Details 
+                            </button>
+                            
+                            
+                        
+                        </div> 
+                    <% 
+                 }) 
+                   }
+                %>
+                </div>
+            
+    
+    </body>
+        <style>
+             body {
+    background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 2;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+img {
+  border: 1px solid white; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 4px; /* Some padding */
+  width: 170px; /* Set a small width */
+}
+        #outer
+{
+    width:100%;
+    text-align: center;
+    
+}
+.login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 90%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+    position: absolute;
+  top: auto;
+  left: 0;
+  width: 120px;
+  transform: translateX(-190%);
+}
+.inner
+{
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1{
+            align-content: center;
+            text-align: center;
+        }
+        </style>
+        
+        </html>
+       

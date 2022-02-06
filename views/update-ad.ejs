@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Update Ad</title>
-  <link rel="stylesheet" href="./style.css">
-
+  <button class="button login__submit" style="margin-left: 20%;"><a href = "/member/home" >BACK</a></button>
+            </button>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -25,7 +25,7 @@
             <form action="/member/updatecontentpost" id="login" method="post" enctype="multipart/form-data">
               <label>Name of Ad</label>
               <div class="description">
-                <input type="hidden" name="id" value="<%=data._id%>" required="required" />
+                <input type="text" class="form-control" name="id" value="<%=data._id%>" readonly />
             </div>
               <div class="form-group">                
                 <input type="text" class="form-control" name = "adname" id="name" value="<%=data.name%>">
@@ -60,7 +60,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 <!-- partial -->
-  <script  src="./script.js"></script>
 
 </body>
 <style>

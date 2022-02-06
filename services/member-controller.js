@@ -160,13 +160,17 @@ var controller = {
     updatecontent : function(req,res){
         var id = req.params.id
         console.log(id + "con");
-        dbController.dbController.updatecontent(id,res)        
+        dbController.dbController.updateContent(id,res)        
     },
 
-    updateContentPost : function (req,res) {       
-        dbController.dbController.updatecontentpost(req,res)
+    updateContentPost : function (req,res) { 
+        var id = req.body.id
+        var name = req.body.adname
+        var description = req.body.addescription
+        var price = req.body.adprice  
+        dbController.dbController.updatecontentpost(name,req,res)
         console.log("Data Updated")
-        res.redirect("/member/viewads/") 
+        res.redirect("/member/viewads")
     },
     reuploadImgView:function(req,res){
         var id = req.params.id 

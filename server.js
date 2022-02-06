@@ -22,10 +22,9 @@ app.get("/", function (req, res) {
     res.render('upload.ejs')
 })
 //mouting ejs files
-app.set("view engine" , "ejs")
 admin.set("view engine", "ejs")
 member.set("view engine" , "ejs")
-
+app.set('view engine', 'ejs')
 //creating session for sub-servers
 admin.use(session({
     secret : "admin",
@@ -48,10 +47,12 @@ app.use(express.static('public')); //localhost:port/public
 //creating route mapping for admin & member
 var adminRoute = require("./services/admin-route")
 var memberRoute = require("./services/member-route")
+var routes = require("./services/routes")
 
 //loading routes to subserver
 adminRoute(admin)
 memberRoute(member)
+routes(app)
 
 app.listen(port, function(err,result){
     if(err){

@@ -25,17 +25,6 @@ function getUserByEmail(email){
     var userData = collection.findOne(filter)
     return userData;
 }
-/*function viewAds(id)
-{
-    var collection = db.collection("adDB")
-    var filter = {
-        'memberid' : id
-    }
-    //var ad = collection.find(filter).toArray(function(err,res){})
-    var ad = collection.findOne(filter)
-    return ad
-}*/
-
 function addAds(req, form,id)
 {
     console.log("inside controller")
@@ -103,15 +92,16 @@ function addAds(req, form,id)
 }
 function reuploadImgAd(req, form, currloginUser) {
     //getting collection
-    dbController.connection()    
+   // dbController.connection()    
+   var collection = db.collection("adDB")
     form.parse(req, function (err, fields, files) {
         //collecting information about the file upload
-        var collection = db.collection("ads")
+        
         var selectedId = fields.id
         var filter = {
             "_id": mongodb.ObjectId(selectedId)
         }
-        console.log("id to filter "+selectedId)
+        console.log("id to filter "+ selectedId)
         var oldPath = files.filetoupload.filepath; //temp location 
         var extension = files.filetoupload.originalFilename.split('.').pop()
         console.log(extension)
@@ -125,6 +115,7 @@ function reuploadImgAd(req, form, currloginUser) {
                 console.log("err in update")
                 return
             }
+            console.log("Updated image");
         })
         var adId = fields.id
         var newFileNameName = "./public/image/" + adId + "." + extension;
@@ -261,7 +252,7 @@ var dbController = {
 
         var passdata = {
             $set :  {
-                "_id":id,
+                "_id":memberid,
                 "fname": fname,
                 "lname": lname,
                 "email": email,
@@ -272,8 +263,9 @@ var dbController = {
         }
         console.log(passdata);
         var whereclause = {
-            "_id" : mongodb.ObjectId(id)
+            "_id" : mongodb.ObjectId(memberid)
         }
+        console.log("where" + whereclause);
         collection.updateMany(whereclause,passdata, function(err, data){
             if(err)
             {
@@ -323,7 +315,7 @@ var dbController = {
         })
     },*/
     
-    updatecontent: function (id, res) {
+    updateContent: function (id, res) {
         var collection = db.collection("adDB")
         var newId = mongodb.ObjectId(id)
         var filter = {
@@ -343,21 +335,18 @@ var dbController = {
         })
     },
 
-    updatecontentpost: function (req, res) {
-        var id = req.body.id
-        var name = req.body.name
-        var description = req.body.description
-        var price = req.body.price
-
+    updatecontentpost: function(name,req,res){
+        var id;
+        console.log("var" + name);
         var frtdata = {
             $set :  {
-                "id":id,
+                //"id":mongodb.ObjectId(id),
                 "name" : name,
-                "description" : description,
-                "price" : price,
+                //"description" : description,
+                //"price" : price,
             }
         }
-       
+        console.log(frtdata);
         var whereclause = {
             "_id" : mongodb.ObjectId(id)
         }
